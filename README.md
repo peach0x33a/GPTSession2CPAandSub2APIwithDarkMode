@@ -8,13 +8,13 @@
 
 ## 使用提示
 
-Plus 号可以用此方式导入中转站使用；Free 号的 access token 不能用于调用接口。
+本项目现在主要用于不同工具之间的 JSON 格式转换。
 
-本工具可用来解决 Codex OAuth 登录需要绑定手机的问题。Plus 账号通过 Web 登录后的 session 就能生成可导入中转站的账号 JSON 数据；这类数据没有 `refresh_token`，但 `access_token` 有效期通常足够长。
+OpenAI 已限制直接使用 ChatGPT Web 登录 session 转换后导入来跳过 Codex OAuth `add phone` / 手机绑定验证的方式。也就是说，本项目不能再用来绕过 Codex 登录时的手机绑定要求。
 
-解释一下： plus激活前（free状态）或激活后（plus状态）获取的session在使用上没有区别（free时拿到的session, 激活plus后就可以调模型了），只是账号级别标识有点区别（标识为free or plus），不影响调模型。 换句话讲，不管你啥时候拿到的session, 用本项目转换导入中转站，只要账号当前激活了plus, 就能正常调模型接口。
+你仍然可以把已有的 ChatGPT Web session、9router OAuth JSON、Codex `auth.json`、AxonHub auth.json 或 Codex-Manager JSON 转换成其它受支持格式，但转换结果是否能被目标工具成功使用，取决于 OpenAI 和目标工具当前的认证限制、账号权限以及 token 是否仍然有效。
 
-本工具主要针对 Plus 账号适用，Free 账号即使转换了也没有权限调用 GPT 模型。GoPay 拉闸了，没法每天发 Plus 了；加入 Discord 频道免费获取 GPT 撸羊毛信息，然后配合本工具导入 CPA or Sub2API 使用。
+ChatGPT Web session 通常不包含 OAuth 文件里常见的 `refresh_token`，因此 access token 过期后不能自动刷新。Free 账号即使转换了，也可能没有权限调用需要付费账号权限的模型或功能。
 
 ## GOAPY 拉闸了， Party is OVER ～ 
 ## **加入 Discord 频道免费获取 GPT 撸羊毛信息：**

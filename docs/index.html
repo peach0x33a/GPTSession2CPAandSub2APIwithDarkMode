@@ -689,6 +689,7 @@
                 <a href="https://chatgpt.com/api/auth/session" target="_blank" rel="noreferrer">https://chatgpt.com/api/auth/session</a>
                 ，复制页面显示的整段 JSON，粘贴到下方输入框。
               </p>
+              <p class="session-warning">OpenAI 已限制通过 Web session 转换导入来跳过 Codex OAuth add phone / 手机绑定验证；本页面仅用于格式转换。</p>
               <p class="session-warning">这段 JSON 包含 accessToken 和 sessionToken，等同敏感登录凭证，不要发给别人。</p>
             </div>
             <a class="discord-card" href="https://discord.gg/GFmHY2TZNy" target="_blank" rel="noreferrer">
@@ -699,7 +700,7 @@
               </span>
               <span class="discord-copy">
                 <strong>加入 Discord 频道免费获取 GPT 撸羊毛信息</strong>
-                <span>本工具主要针对 Plus 账号适用，Free 账号即使转换了也没有权限调用 GPT 模型。GoPay 拉闸了，没法每天发 Plus 了；加入 Discord 频道免费获取 GPT 撸羊毛信息，然后配合本工具导入 CPA or Sub2API 使用。</span>
+                <span>本工具现在主要用于已有 JSON 的格式转换。转换结果是否能使用，取决于 OpenAI 和目标工具当前的认证限制、账号权限以及 token 是否仍然有效。</span>
               </span>
               <span class="discord-action">加入频道</span>
             </a>
@@ -727,7 +728,7 @@
           </div>
           <div class="panel-body">
             <p class="notice" id="cpa-notice">
-              ChatGPT Web session 一般没有 `refresh_token`；缺少真实 `id_token` 时 CPA、Cockpit、Codex 和 AxonHub 会构造 Codex 可解析的占位 JWT claims。Codex 和 Codex-Manager 会保留空 `refresh_token`；AxonHub 缺少真实 `refresh_token` 时会写入占位值。
+              本页面仅做格式转换，不能绕过 Codex OAuth add phone / 手机绑定验证。ChatGPT Web session 一般没有 `refresh_token`；缺少真实 `id_token` 时 CPA、Cockpit、Codex 和 AxonHub 会构造 Codex 可解析的占位 JWT claims。Codex 和 Codex-Manager 会保留空 `refresh_token`；AxonHub 缺少真实 `refresh_token` 时会写入占位值。
             </p>
             <div class="summary" aria-label="转换统计">
               <div class="stat">
